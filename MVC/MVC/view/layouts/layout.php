@@ -13,6 +13,14 @@
             <li><a href="index.php?controller=utilisateur">utilisateur</a></li>
             <li><a href="index.php?controller=utilisateur&function=create">Ajouter utilisateur</a></li>
             <li><a href="index.php?controller=utilisateur&function=store">login</a></li>
+            <?php
+    // Vérifier si l'utilisateur est connecté
+    if (isset($_SESSION['login'])) {
+        // Utilisateur connecté, afficher le lien pour ajouter un article
+        echo '<li><a href="index.php?controller=forum&function=creerUnArticle">Ajouter un article</a></li>';
+    }
+    ?>
+
         </ul>
     </nav>
     <div class="container">
