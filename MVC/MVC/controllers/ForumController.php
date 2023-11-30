@@ -19,4 +19,9 @@ function logout(){
     session_destroy();
     render('/utilisateur/login.php');
 }
+function deleteArticle($request){
+    require_once("models/forum.php");
+    delete($request);
+    render("/forum/forum.php");
+}
 ?>

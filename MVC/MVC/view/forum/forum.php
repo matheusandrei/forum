@@ -1,49 +1,31 @@
-
-
-
-<h1>Bienvenue au Forum <?php $_SESSION['nom']?></h1>
-
 <?php
 require('lib/connex.php');
-$sql  = "SELECT * FROM forum";
+$sql = "SELECT * FROM forum";
 $result =  mysqli_query($connex, $sql);
-
-
-if(!$_SESSION){
-
-    
-}else{
-
-
 ?>
 
-        <h2>Hello <?= $_SESSION['nom'];
-    }?></h2>
-        <table>
-            <tr>
-                <th>Titre</th>
-                <th>Article</th>
-                <th>Date</th>
-                <th>Author</th>
-                <th class="invisible">utilisateur_id</th>
-        
-            </tr>
-            <?php 
-                foreach($result as $row) {
+<h1>Bienvenue au Forum </h1>
 
-            ?>
-            <tr>
-                <td><?= $row['titre']; ?></td>
-                <td><?= $row['article']; ?></td>
-                <td><?= $row['date']; ?></td>
-                <td><?= $row['auteur']; ?></td>
-                <td class="invisible"><?= $row['utilisateur_id']; ?></td>
-    
+<?php if (!$_SESSION): ?>
+    <!-- Handle the case where the user is not logged in -->
+<?php else: ?>
+    <h2>Hello <?= $_SESSION['nom']; ?></h2>
+    <div class="forum-container">
+        <?php foreach ($result as $row): ?>
+            <div class="forum-post">
+                <h3><?= $row['titre']; ?></h3>
+                <p><?= $row['article']; ?></p>
+                <p>Date: <?= $row['date']; ?></p>
+                <p>Author: <?= $row['auteur']; ?></p>
+                <p class="invisible">User ID: <?= $row['utilisateur_id']; ?></p>
+                <div class="separer">
+                            <a href="index.php?controller=forum&function=formedit&id=<?= $row['id']; ?>"><button class="btn" type="submit" >Editer</a>
+                            <a href="index.php?controller=forum&function=deleteArticle&id=<?= $row['id']; ?>"><button class="btn btn-danger" type="submit" >Éffacé</a>
+                        </div>
+                
+        <?php endforeach; ?> 
+    </div>
+<?php endif; ?>
 
-            </tr>
-            <?php
-                }
-            ?>
-        </table>
+<a class="btn-danger" href="index.php?controller=forum&function=logout">Logout</a>
 
-    <a href="index.php?controller=forum&function=logout">logout</a>
