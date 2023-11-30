@@ -8,6 +8,7 @@ function forumSelect() {
     $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $result;
 }
+
 function ajouterUnArticle(){
     require(CONNEX_DIR);
     foreach($_POST as $key =>$value){

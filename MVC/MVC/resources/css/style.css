@@ -4,7 +4,7 @@ body{
 }
 
 nav {
-    background-color:  #007bff;
+    background-color:  rgb(255, 157, 0);
 }
 
 /* Style the list and remove list styling */
@@ -112,3 +112,7 @@ input, select {
 .text-danger{
     color: #d63a3a;
 }
+.invisible{
+    display:none;
+}
+

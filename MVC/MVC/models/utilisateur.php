@@ -65,7 +65,7 @@ function seConnecter(){
         }
     
     }else{
-        header('location:login.php?msg=1');
+        echo"nao valido";
     }
     
 

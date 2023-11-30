@@ -15,9 +15,12 @@
             <li><a href="index.php?controller=utilisateur&function=store">login</a></li>
             <?php
     // Vérifier si l'utilisateur est connecté
-    if (isset($_SESSION['login'])) {
+    if (isset($_SESSION['fingerPrint'])) {
         // Utilisateur connecté, afficher le lien pour ajouter un article
-        echo '<li><a href="index.php?controller=forum&function=creerUnArticle">Ajouter un article</a></li>';
+        echo '<li><a href="index.php?controller=forum&function=afficherFormArticle">Ajouter un article</a></li>';
+    }else{
+        
+        echo '<li class="invisible"><a href="index.php?controller=forum&function=afficherFormArticle">Ajouter un article</a></li>';
     }
     ?>
 
