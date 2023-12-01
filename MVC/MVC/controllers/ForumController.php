@@ -24,4 +24,19 @@ function deleteArticle($request){
     delete($request);
     render("/forum/forum.php");
 }
+
+
+
+function formedit($request){
+    require_once("models/forum.php");
+    $articleTrouver=editerDonnesArticles($request);
+    render('/forum/edition.php', $articleTrouver);
+}
+
+function editer(){
+    require_once("models/forum.php");
+    editerArticle();
+    render('/forum/forum.php');
+}
+
 ?>

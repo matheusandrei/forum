@@ -27,15 +27,40 @@ function ajouterUnArticle(){
 function delete($request)
 {
     require_once("lib/connex.php");
-
     $id = mysqli_real_escape_string($connex, $request['id']);
-
     foreach ($_POST as $key => $value) {
         $$key = mysqli_real_escape_string($connex, $value);
     }
-
     $sql = "DELETE FROM forum WHERE id = '$id' ";
+    if (mysqli_query($connex, $sql)) {
+        return true;
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($connex);
+    }
+}
+function editerDonnesArticles($request){
 
+    require_once("lib/connex.php");
+    $id=mysqli_real_escape_string($connex, $request['id']);
+    $sql= "SELECT * FROM forum WHERE id ='$id';";
+    $result=mysqli_query($connex,$sql);
+    $count=mysqli_num_rows($result);
+    print_r($count);
+    if($count==1){
+        $articleTrouver=mySqli_fetch_array($result, MYSQLI_ASSOC);
+        print_r($articleTrouver);
+        return $articleTrouver;
+    }
+}
+
+
+function editerArticle(){
+    require_once("lib/connex.php");
+    foreach ($_POST as $key => $value) {
+        $$key = mysqli_real_escape_string($connex, $value);
+    }
+    $sql = "UPDATE forum SET titre='$titre', article='$article' where id='$id'";
+    
     if (mysqli_query($connex, $sql)) {
         return true;
     } else {
@@ -43,5 +68,4 @@ function delete($request)
     }
 }
 
-   
 ?>

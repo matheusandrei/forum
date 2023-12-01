@@ -9,8 +9,7 @@
 <body>
     <nav>
         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="index.php?controller=utilisateur">utilisateur</a></li>
+            <li><a href="index.php?controller=forum&function=afficherPageForum">Home</a></li>
             <li><a href="index.php?controller=utilisateur&function=create">Ajouter utilisateur</a></li>
             <li><a href="index.php?controller=utilisateur&function=store">login</a></li>
             <?php

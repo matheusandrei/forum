@@ -1,8 +1,9 @@
 
 
 
-<h2>Login</h2>
+
     <form action="index.php?controller=utilisateur&function=login" method="post">
+    <h1>Login</h1>
             <label for="nomUtilisateur">email:
             <input type="email"  name="nomUtilisateur" required>
             </label>

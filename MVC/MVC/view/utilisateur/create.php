@@ -3,7 +3,7 @@
         <input name="nom" type="text">
     </label>
     <label> mot de passe :
-        <input name="motDePasse" type="password">
+        <input name="motDePasse" type="password" minlength="6">
     </label>
     <label> Courriel :
         <input name="nomUtilisateur" type="email">
