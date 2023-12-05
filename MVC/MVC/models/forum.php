@@ -48,7 +48,6 @@ function editerDonnesArticles($request){
     print_r($count);
     if($count==1){
         $articleTrouver=mySqli_fetch_array($result, MYSQLI_ASSOC);
-        print_r($articleTrouver);
         return $articleTrouver;
     }
 }
