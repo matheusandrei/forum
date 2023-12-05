@@ -22,9 +22,8 @@ $result =  mysqli_query($connex, $sql);
                     <a href="index.php?controller=forum&function=deleteArticle&id=<?= $row['id']; ?>"><button class="btn btn-danger" type="submit">Effacer</button></a>
                 </div>
             <?php else : ?>
-                <p>vous n'avez pas la permission d'éditer ou de supprimer cet article.</p>
+                <p>Vous n'avez pas la permission d'éditer ou de supprimer cet article.</p>
             <?php endif; ?>
-        <?php endforeach; ?>
         </div>
-        <?php
-        ?>
+    <?php endforeach; ?>
+</div>
